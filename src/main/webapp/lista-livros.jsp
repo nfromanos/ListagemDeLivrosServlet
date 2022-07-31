@@ -19,13 +19,17 @@
         <th>Nome do autor</th>
     </tr>
     <c:forEach var="livro" items="${livros}" varStatus="id">
-    <tr>
-        <td>${livro.id}</td>
-        <td>${livro.nomeLivro}</td>
-        <td>${livro.nomeAutor}</td>
-    </tr>
-    </c:forEach>
+        <tr>
+            <td>${livro.id}</td>
+            <td>${livro.nomeLivro}</td>
+            <td>${livro.nomeAutor}</td>
+        </tr>
 </table>
-<a href="cadastro-livros.jsp">Cadastre um novo cliente.</a>
+<div>
+    <a href="${pageContext.request.contextPath}/livro-servlet/atualizar-livro?id=<c:out value='${livro.id}' />">Edit</a>
+    <a href="${pageContext.request.contextPath}/livro-servlet/excluir-livro?id=<c:out value='${livro.id}' />">Excluir</a>
+</div>
+</c:forEach>
+<a href="${pageContext.request.contextPath}/livro-servlet/excluir-livro.jsp>">Cadastrar novo livro</a>
 </body>
 </html>

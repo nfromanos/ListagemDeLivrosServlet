@@ -13,7 +13,7 @@
 <body>
 <fieldset>
   <legend>Dados do livro</legend>
-    <form action="livro-servlet" method="post">
+    <form action="livro-servlet/cadastro-livros" method="post">
 
       <div>
       <label for="nomeLivro">Nome do livro:</label><br>
