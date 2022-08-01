@@ -16,12 +16,12 @@
     <form action="livro-servlet/cadastro-livros" method="post">
 
       <div>
-      <label for="nomeLivro">Nome do livro:</label><br>
-      <input type="text" id="nomeLivro" name="nomeLivro"><br>
+      <label for="nomeLivro">Nome do livro:</label>
+      <input type="text" id="nomeLivro" name="nomeLivro">
       </div>
 
       <div>
-      <label for="nomeAutor">Nome do autor:</label><br>
+      <label for="nomeAutor">Nome do autor:</label>
       <input type="text" id="nomeAutor" name="nomeAutor">
       </div>
       <input type="submit" value="Enviar">

@@ -35,8 +35,11 @@ public class LivroServlet extends HttpServlet {
             case "/cadastro-livros":
                 doPost(request, response);
                 break;
-            case "/atualizar-livro":
+            case "/edicao-livro":
                 carregarUpdate(request, response);
+                break;
+            case "/atualizar-livro":
+                doPut(request, response);
                 break;
             case "/excluir-livro":
                 doDelete(request, response);
@@ -74,6 +77,9 @@ public class LivroServlet extends HttpServlet {
         Livro livro = businessObject.findById(id);
         businessObject.remove(livro);
 
+        List<Livro> listaDosLivros = businessObject.findAll();
+        req.setAttribute("livros", listaDosLivros);
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/lista-livros.jsp");
         requestDispatcher.forward(req, resp);
     }
@@ -83,14 +89,10 @@ public class LivroServlet extends HttpServlet {
         String id = req.getParameter("id");
         Livro livro = criarLivro(req);
         livro.setId(Long.parseLong(id));
-        Livro livroAlterado = businessObject.update(livro);
-
-        req.setAttribute("idLivroAlterado", livroAlterado.getId());
-
+        businessObject.update(livro);
 
         List<Livro> listaDosLivros = businessObject.findAll();
         req.setAttribute("livros", listaDosLivros);
-
 
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/lista-livros.jsp");
@@ -100,14 +102,12 @@ public class LivroServlet extends HttpServlet {
     private void carregarUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
         String idLivro = req.getParameter("id");
-
         Livro livro = businessObject.findById(idLivro);
 
         req.setAttribute("livro", livro);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/atualizar-livro.jsp");
         dispatcher.forward(req,resp);
-
     }
 
     public Livro criarLivro(HttpServletRequest req){

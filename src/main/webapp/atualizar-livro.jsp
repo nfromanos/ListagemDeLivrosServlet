@@ -8,15 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Atualizar livros</title>
 </head>
 <body>
 <fieldset>
 <legend>Id do livro para atualizar</legend>
-<form action="editar-livro" method="post">
+<form action="atualizar-livro" method="post">
     <div>
-        <label for="idLivro">ID do Livro:</label>
-        <input type="text" id="idLivro" name="${livro.id}">
+        <input type="hidden" name="id" value="${livro.id}">
     </div>
     <div>
         <label for="nomeLivro">Nome do livro:</label>
@@ -24,7 +23,7 @@
     </div>
     <div>
         <label for="nomeAutor">Nome do autor:</label>
-        <input type="text" id="nomeAutor" value="${livro.nomeAutor}">
+        <input type="text" id="nomeAutor" name="nomeAutor" value="${livro.nomeAutor}">
     </div>
     <input type="submit" value="Enviar">
 </form>

@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Lista de livros</title>
 </head>
 <body>
 <table border="solid">
@@ -23,13 +23,11 @@
             <td>${livro.id}</td>
             <td>${livro.nomeLivro}</td>
             <td>${livro.nomeAutor}</td>
+            <td><a href="${pageContext.request.contextPath}/livro-servlet/edicao-livro?id=<c:out value='${livro.id}' />">Edit</a></td>
+            <td><a href="${pageContext.request.contextPath}/livro-servlet/excluir-livro?id=<c:out value='${livro.id}' />">Excluir</a></td>
         </tr>
+    </c:forEach>
 </table>
-<div>
-    <a href="${pageContext.request.contextPath}/livro-servlet/atualizar-livro?id=<c:out value='${livro.id}' />">Edit</a>
-    <a href="${pageContext.request.contextPath}/livro-servlet/excluir-livro?id=<c:out value='${livro.id}' />">Excluir</a>
-</div>
-</c:forEach>
-<a href="${pageContext.request.contextPath}/livro-servlet/excluir-livro.jsp>">Cadastrar novo livro</a>
+<a href="${pageContext.request.contextPath}/cadastro-livros.jsp">Cadastrar novo livro</a>
 </body>
 </html>

@@ -44,7 +44,7 @@ public class LivroDAOImpl implements LivroDAOI {
                 .findFirst().get();
 
         modificaLivro(livroAlterado, livroNovo);
-        return Optional.of(livroAlterado);
+        return Optional.of(livroNovo);
     }
 
     private void modificaLivro(Livro livroAlterado, Livro livroNovo) {
